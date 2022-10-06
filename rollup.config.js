@@ -1,16 +1,24 @@
-import scss from "rollup-plugin-scss";
+import html from "@web/rollup-plugin-html";
+import resolve from "@rollup/plugin-node-resolve";
+import { terser } from "rollup-plugin-terser";
 
 export default {
-  input: "./index.js",
-  output: {
-    file: "./web/main.min.js",
-    format: "esm",
-  },
+  input: "./src/index.html",
+  output: { dir: "dist" },
   plugins: [
-    scss({
-      include: ["*.scss"],
-      output: "web/styles.css",
-      failOnError: true,
+    html(),
+    resolve(), // Resolve bare module specifiers to relative paths
+
+    terser({
+      // Minify JS
+      ecma: 2020,
+      module: true,
+      warnings: true,
+      mangle: {
+        properties: {
+          regex: /^__/,
+        },
+      },
     }),
   ],
 };
