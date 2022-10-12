@@ -1,17 +1,20 @@
 <!DOCTYPE html><html><head>
     
-    <link rel="stylesheet" type="text/css" href="assets/styles-ed6d7a1f.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles-8c52c69c.css">
   </head>
   <body>
     <template id="line-template">
-      <div id="line">
-        <hr class="inter"><hr class="inter"><hr class="inter"><hr class="first">
+      <div class="line">
+        <div class="inter"></div>
+        <div class="inter"></div>
+        <div class="inter"></div>
+        <div class="first"></div>
         <div id="content"><span><slot name="value"></slot></span></div>
       </div>
     </template>
 
     <div class="grid grid_page_and_config">
-      <div id="pageA4">
+      <div id="page">
         <div id="lines">
         </div>
 
@@ -52,24 +55,29 @@
     </div>
     <div id="config">
       <form>
-        <label for="margin-activation"><input type="checkbox" id="margin-activation" name="margin-activation" role="switch">Avec marge à gauche</label>
         <div class="grid">
-          <label for="margin-color">Couleur de la marge<input type="color" id="margin-color" name="margin-color" required="" value="#ff5555"></label>
-          <label for="margin-gap">Début de la marge<input type="number" id="margin-gap" name="margin-gap" placeholder="15" required="" value="15"></label>
-          <label for="gap-vertical">Hauteur de l'interligne<input type="number" id="gap-vertical" name="gap-vertical" placeholder="3" required="" value="3"></label>
+          <label for="page-height">Hauteur de la page<input type="number" id="page-height" name="page-height" placeholder="280" required="" value="280"></label>
+          <label for="page-width">Largeur de la page<input type="number" id="page-width" name="page-width" placeholder="200" required="" value="200"></label>
+          <button id="page-switch">🔃 Inverser</button>
         </div>
         <div class="grid">
+          <label for="margin-activation"><input type="checkbox" id="margin-activation" name="margin-activation" role="switch">Avec marge à gauche</label>
+          <label for="margin-color">Couleur de la marge<input type="color" id="margin-color" name="margin-color" required="" value="#ff5555"></label>
+          <label for="margin-gap">Début de la marge<input type="number" id="margin-gap" name="margin-gap" placeholder="15" required="" value="15"></label>
+        </div>
+        <div class="grid">
+          <label for="gap-vertical">Hauteur de l'interligne<input type="number" id="gap-vertical" name="gap-vertical" placeholder="3" required="" value="3"></label>
           <label for="interline-main-color">Couleur des carreaux<input type="color" id="interline-main-color" name="interline-main-color" required="" value="#5fbcff"></label>
           <label for="interline-second-color">Couleur de l'interligne<input type="color" id="interline-second-color" name="interline-second-color" required="" value="#c9c9c9"></label>
           <!-- <label for="interline-gap-horizontal">interline-gap-horizontal<input type="number" id="interline-gap-horizontal" name="interline-gap-horizontal" placeholder="15" required value="15"></label> -->
         </div>
         <div class="grid">
           <label for="interline-height">Epaisseur de l'interligne<input type="number" id="interline-height" name="interline-height" placeholder="0.5" required="" value="0.5"></label>
-          <label for="font-size">Taille de la police (mm)<input type="number" id="font-size" name="font-size" placeholder="9" required="" value="9"></label>
+          <label for="font-size">Taille de la police (mm)<input type="number" id="font-size" name="font-size" placeholder="10" required="" value="10"></label>
         </div>
         <div class="grid">
           <label for="repeat-row">Répétition<input type="number" id="repeat-row" min="0" name="repeat-row" placeholder="3" required="" value="3"></label>
-          <label for="repeat-gap">Décalage<input type="number" id="repeat-gap" name="repeat-gap" placeholder="48" required="" value="48"></label>
+          <label for="repeat-gap">Décalage<input type="number" id="repeat-gap" name="repeat-gap" placeholder="50" required="" value="50"></label>
         </div>
       </form>
 
