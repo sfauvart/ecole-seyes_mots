@@ -7,9 +7,11 @@ let config = {
   "interline-main-color": "#5fbcff",
   "interline-second-color": "#c9c9c9",
   "interline-height": 0.5,
-  "font-size": 9,
+  "font-size": 10,
   "repeat-row": 3,
-  "repeat-gap": 48,
+  "repeat-gap": 50,
+  "page-height": 280,
+  "page-width": 200,
 };
 
 let varCss = {
@@ -47,7 +49,7 @@ function updateDOM() {
       content.style = `left: calc(var(--seyes-margin-gap) + ${
         (i + 1) * config["repeat-gap"]
       }mm)`;
-      clone.querySelector("#line").appendChild(content);
+      clone.querySelector(".line").appendChild(content);
     }
 
     lines.appendChild(clone);
@@ -70,6 +72,8 @@ function updateConfig() {
   varCss["interline-second-color"] = config["interline-second-color"];
   varCss["interline-height"] = `${config["interline-height"]}mm`;
   varCss["font-size"] = `${config["font-size"]}mm`;
+  varCss["page-height"] = `${config["page-height"]}mm`;
+  varCss["page-width"] = `${config["page-width"]}mm`;
 
   for (const item in varCss) {
     r.style.setProperty(`--seyes-${item}`, varCss[item]);
@@ -92,12 +96,28 @@ document.querySelector("#margin-activation").onclick = (evt) => {
   "font-size",
   "repeat-row",
   "repeat-gap",
+  "page-height",
+  "page-width",
 ].forEach((key) => {
   document.querySelector(`#${key}`).onchange = (evt) => {
     config[key] = evt.target.value;
     updateConfig();
   };
 });
+
+document.querySelector('#page-switch').onclick = (evt) => {
+  evt.preventDefault();
+
+  const height = document.querySelector('#page-height').value;
+  const width = document.querySelector('#page-width').value;
+
+  document.querySelector('#page-width').value = height;
+  document.querySelector('#page-height').value = width;
+
+  config["page-width"] = height;
+  config["page-height"] = width;
+  updateConfig();
+};
 
 updateConfig();
 

@@ -12,20 +12,16 @@
 } */
 
 body {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-@page {
-  size: A4;
-  margin: 0;
-}
 @media print {
   html,
   body {
-    width: 210mm;
-    height: 297mm;
+    height: var(--seyes-page-height);
+    width: var(--seyes-page-width);
   }
-  #pageA4 {
+  #page {
     page-break-after: always;
   }
   #config {
@@ -33,13 +29,12 @@ body {
   }
 }
 
-#pageA4 {
+#page {
   background: white;
-  width: 21cm;
-  height: 29.7cm;
+  height: var(--seyes-page-height);
+  width: var(--seyes-page-width);
   display: block;
   margin: 0 auto;
-  margin-bottom: 0.5cm;
   position: relative;
   overflow: hidden;
 }
@@ -68,26 +63,20 @@ textarea {
   grid-template-columns:2fr 1fr;
 }
 
-#line {
-  position: relative;
-  width: 100%;
+.line {
+  height: 12mm;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
-#line hr.first {
-  border-style: none;
-  height: var(--seyes-gap-vertical);
-  margin: 0;
-  padding: 0;
-  margin-bottom: calc(var(--seyes-interline-height) * -1);
-  border-bottom: var(--seyes-interline-height) solid var(--seyes-interline-main-color);
-}
-#line hr.inter {
-  border-style: none;
-  height: var(--seyes-gap-vertical);
-  max-height: var(--seyes-gap-vertical);
-  margin: 0;
-  padding: 0;
-  margin-bottom: calc(var(--seyes-interline-height) * -1);
+
+.line .inter {
   border-bottom: var(--seyes-interline-height) solid var(--seyes-interline-second-color);
+}
+.line .first {
+  border-bottom: var(--seyes-interline-height) solid var(--seyes-interline-main-color);
 }
 
 #content {
@@ -102,7 +91,7 @@ textarea {
   position: absolute;
   left: 0;
   bottom: 0;
-  margin-bottom: calc(var(--seyes-interline-height) * -1);
+  /* margin-bottom: calc(var(--seyes-interline-height) * -1); */
   line-height: 0;
 }
 
@@ -115,7 +104,7 @@ textarea {
 
 .margin {
   border-left: var(--seyes-margin-thickness) solid var(--seyes-margin-color);
-  height: 29.7cm;
+  height: var(--seyes-page-height);
   position: absolute;
   left: var(--seyes-margin-gap);
   right: 0;
@@ -124,7 +113,7 @@ textarea {
 }
 .vl {
   border-left: var(--seyes-interline-height) solid var(--seyes-interline-main-color);
-  height: 29.7cm;
+  height: var(--seyes-page-height);
   position: relative;
   left: var(--seyes-interline-gap-horizontal);
   width: var(--seyes-interline-gap-horizontal);
