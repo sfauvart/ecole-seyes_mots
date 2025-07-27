@@ -27,3 +27,9 @@ Démarrer le serveur web avec rafraîchissement automatique
 ```bash
   npm run start:local
 ```
+
+Deploy gh-pages
+
+```bash
+  npm run deploy
+```

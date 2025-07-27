@@ -5,11 +5,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "rm -rf dist && rollup -c rollup.config.js",
     "build:watch": "rollup -c rollup.config.js -w",
     "serve": "web-dev-server --node-resolve --open dist/ --watch",
     "start:local": "concurrently --kill-others \"npm:build:watch\" \"npm:serve\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && git checkout gh-pages && rm -rf assets && yes | cp -r ./dist/* ./ && git add index.js index.html assets && git commit -m \"update\" && git push --force && git checkout main"
   },
   "author": "",
   "license": "LGPL-3.0",

@@ -12,7 +12,7 @@ let config = {
   "repeat-gap": 50,
   "page-height": 280,
   "page-width": 200,
-  "font-family": "Cursive Dumont maternelle"
+  "font-family": "Cursive Dumont maternelle",
 };
 
 let varCss = {
@@ -26,7 +26,7 @@ let varCss = {
   "interline-gap-horizontal": "calc(var(--seyes-gap-vertical) *4)",
   "interline-height": "0.5mm",
   "font-size": "12mm",
-  "font-family": "\"Cursive Dumont maternelle\"",
+  "font-family": '"Cursive Dumont maternelle"',
 };
 
 document.querySelector("#liste_mots").addEventListener("input", (evt) => {
@@ -108,14 +108,14 @@ document.querySelector("#margin-activation").onclick = (evt) => {
   };
 });
 
-document.querySelector('#page-switch').onclick = (evt) => {
+document.querySelector("#page-switch").onclick = (evt) => {
   evt.preventDefault();
 
-  const height = document.querySelector('#page-height').value;
-  const width = document.querySelector('#page-width').value;
+  const height = document.querySelector("#page-height").value;
+  const width = document.querySelector("#page-width").value;
 
-  document.querySelector('#page-width').value = height;
-  document.querySelector('#page-height').value = width;
+  document.querySelector("#page-width").value = height;
+  document.querySelector("#page-height").value = width;
 
   config["page-width"] = height;
   config["page-height"] = width;
@@ -123,16 +123,3 @@ document.querySelector('#page-switch').onclick = (evt) => {
 };
 
 updateConfig();
-
-// List fonts available
-// console.log(await queryLocalFonts());
-// [{
-//   family: "Cursive Dumont maternelle";
-//   fullName: "CursiveDumontmaternelle";
-//   postscriptName: "CursiveDumontmaternelle";
-//   style: "Regular";
-// }]
-
-// You can also check whether the user has granted permission:
-// const {state} = await navigator.permissions.query({name: 'local-fonts'});
-// console.log(state); // Either 'granted', 'prompt' or 'denied'

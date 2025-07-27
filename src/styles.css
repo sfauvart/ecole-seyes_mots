@@ -51,7 +51,7 @@ input {
   width: 50px;
   display: block;
 }
-input[type=checkbox] {
+input[type="checkbox"] {
   display: inline;
 }
 textarea {
@@ -60,7 +60,7 @@ textarea {
 }
 
 .grid_page_and_config {
-  grid-template-columns:2fr 1fr;
+  grid-template-columns: 2fr 1fr;
 }
 
 .line {
@@ -73,10 +73,12 @@ textarea {
 }
 
 .line .inter {
-  border-bottom: var(--seyes-interline-height) solid var(--seyes-interline-second-color);
+  border-bottom: var(--seyes-interline-height) solid
+    var(--seyes-interline-second-color);
 }
 .line .first {
-  border-bottom: var(--seyes-interline-height) solid var(--seyes-interline-main-color);
+  border-bottom: var(--seyes-interline-height) solid
+    var(--seyes-interline-main-color);
 }
 
 #content {
@@ -112,7 +114,8 @@ textarea {
   overflow: hidden;
 }
 .vl {
-  border-left: var(--seyes-interline-height) solid var(--seyes-interline-main-color);
+  border-left: var(--seyes-interline-height) solid
+    var(--seyes-interline-main-color);
   height: var(--seyes-page-height);
   position: relative;
   left: var(--seyes-interline-gap-horizontal);
@@ -120,7 +123,7 @@ textarea {
   float: left;
 }
 
-#config *{
+#config * {
   font-size: 15px;
 }
 #config textarea {
