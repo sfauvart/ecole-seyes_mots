@@ -1,6 +1,6 @@
-import html from "@web/rollup-plugin-html";
+import { rollupPluginHTML as html } from '@web/rollup-plugin-html';
 import resolve from "@rollup/plugin-node-resolve";
-import { terser } from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 
 export default {
   input: "./src/index.html",

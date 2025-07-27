@@ -12,6 +12,7 @@ let config = {
   "repeat-gap": 50,
   "page-height": 280,
   "page-width": 200,
+  "font-family": "Cursive Dumont maternelle"
 };
 
 let varCss = {
@@ -74,6 +75,7 @@ function updateConfig() {
   varCss["font-size"] = `${config["font-size"]}mm`;
   varCss["page-height"] = `${config["page-height"]}mm`;
   varCss["page-width"] = `${config["page-width"]}mm`;
+  varCss["font-family"] = `\"${config["font-family"]}\"`;
 
   for (const item in varCss) {
     r.style.setProperty(`--seyes-${item}`, varCss[item]);
@@ -98,6 +100,7 @@ document.querySelector("#margin-activation").onclick = (evt) => {
   "repeat-gap",
   "page-height",
   "page-width",
+  "font-family",
 ].forEach((key) => {
   document.querySelector(`#${key}`).onchange = (evt) => {
     config[key] = evt.target.value;
