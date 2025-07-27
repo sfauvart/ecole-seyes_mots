@@ -9,12 +9,12 @@ Nécessite l'installation d'une police d'écriture payante (non fourni ici) : ht
 
 ## Code local
 
-Le projet nécessite NodeJS (>16)
+Le projet nécessite NodeJS (>22)
 
 Cloner le projet en local
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/sfauvart/ecole-seyes_mots
 ```
 Installer les dépendances
 
